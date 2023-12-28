@@ -29,28 +29,28 @@ export default function Home() {
     fetchImages();
   }, []);
 
-  // // Infinite scroll functionality to fetch more images as the user scrolls
-  // useEffect(() => {
-  //   // Event listener function to handle scroll events
-  //   const handleScroll = () => {
-  //     const scrollY = window.scrollY || document.documentElement.scrollTop;
-  //     const totalHeight = document.documentElement.scrollHeight;
-  //     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+  // Infinite scroll functionality to fetch more images as the user scrolls
+  useEffect(() => {
+    // Event listener function to handle scroll events
+    const handleScroll = () => {
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      const totalHeight = document.documentElement.scrollHeight;
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
-  //     // Check if the user has scrolled near the bottom of the page
-  //     if (scrollY + viewportHeight + 1 >= totalHeight) {
-  //       fetchImages();
-  //     }
-  //   };
+      // Check if the user has scrolled near the bottom of the page
+      if (scrollY + viewportHeight + 1 >= totalHeight) {
+        fetchImages();
+      }
+    };
 
-  //   // Add 'scroll' event listener to the window
-  //   window.addEventListener('scroll', handleScroll);
+    // Add 'scroll' event listener to the window
+    window.addEventListener('scroll', handleScroll);
 
-  //   // Cleanup function to remove the 'scroll' event listener when the component is unmounted
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, [page]);
+    // Cleanup function to remove the 'scroll' event listener when the component is unmounted
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [page]);
 
   return (
     <div>
