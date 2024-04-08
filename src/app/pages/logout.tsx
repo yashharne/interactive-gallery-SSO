@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import Link from 'next/link';
 import Gallery from './gallery';
+import { useState } from 'react';
 
 
 // interface User {
@@ -21,6 +22,7 @@ import Gallery from './gallery';
 export default function Logout() {
 
     const { user, error, isLoading } = useUser();
+    const [renderGallery, setRenderGallery] = useState(false);
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>{error.message}</div>;
@@ -38,10 +40,10 @@ export default function Logout() {
                     </div>
                 )
             }
-            <Link href="/">
-                Go to Gallery
-            </Link>
-            <Gallery />
+            <button onClick={() => setRenderGallery(!renderGallery)}>Toggle Gallery</button>
+            {
+                renderGallery && <Gallery />
+            }
         </div>
 
     );
