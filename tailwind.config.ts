@@ -16,6 +16,7 @@ const config: Config = {
     },
     fontFamily: {
       diphylleia: ["Diphylleia", "sans-serif"],
+      nabla: ["Nabla", "sans-serif"],
     },
   },
   plugins: [require("daisyui")],

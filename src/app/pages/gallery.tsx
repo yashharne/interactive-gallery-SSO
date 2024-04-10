@@ -3,7 +3,11 @@
 import { useEffect, useState } from "react";
 import ImageCard from "../components/ImageCard";
 
-export default function Gallery() {
+interface UserProps {
+    username: string
+}
+
+export default function Gallery({ username }: UserProps) {
 
     // State to manage the fetched images
     const [images, setImages] = useState<any[]>([]);
@@ -55,7 +59,8 @@ export default function Gallery() {
     return (
         <div>
             <div className="p-8">
-                <h1 className="mb-6 text-3xl font-extrabold text-center font-diphylleia font-sans md:text-5xl lg:text-6xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Interactive Gallery</span></h1>
+                {/* <h1 className="mb-6 text-3xl font-extrabold text-center font-diphylleia font-sans md:text-5xl lg:text-6xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Interactive Gallery</span></h1> */}
+                <h1 className="mb-6 text-3xl font-extrabold text-center font-sans font-nabla md:text-3xl lg:text-5xl">Welcome to your Interactive Gallery, {username}</h1>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     {/* Render the ImageCard component for each image */}
                     {images.map((image, index) => (
